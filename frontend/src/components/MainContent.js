@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Container, Col, Row, Card } from 'react-bootstrap'
+import { Container, Col, Row, Card, Button } from 'react-bootstrap'
 
 export default function MainContent() {
   const [q, setQ] = useState('Blade Runner')
+  const [movieData, setMovieData] = useState([])
 
   useEffect(() => {
-    axios
-      .get(`http://www.omdbapi.com/?s=${q}&apikey=${process.env.REACT_APP_API_KEY}`)
-      .then(
-        (response) => {
-          console.log(response)
-        },
-        (error) => {
-          console.log(error)
-        }
+    const fetchMovie = async () => {
+      const response = await axios.get(
+        `http://www.omdbapi.com/?s=${q}&apikey=${process.env.REACT_APP_API_KEY}`
       )
-  })
+      const fetchedMovie = await response.data
+      setMovieData(fetchedMovie.Search)
+    }
+    fetchMovie()
+  }, [setMovieData, q])
 
   return (
     <div>
@@ -28,7 +27,13 @@ export default function MainContent() {
             <Card>Just type in the movie you'd like to learn more about</Card>
           </Col>
           <Col>
-            <Card>And we'll do the rest</Card>
+            <Card>
+              <ul>
+                {movieData.map((movie, i) => {
+                  return <li key={i}>{movie.Title} &copy; {movie.Year}</li>
+                })}
+              </ul>
+            </Card>
           </Col>
         </Row>
       </Container>
