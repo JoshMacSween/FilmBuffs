@@ -6,12 +6,6 @@ export default function MovieCard({ title, year, plot, poster }) {
     <>
       <Card>
         <Card.Img src={poster}/>
-        <Card.Body>
-          <h4>
-            {title}, {year}
-          </h4>
-          <p>{plot}</p>
-        </Card.Body>
       </Card>
     </>
   )

@@ -34,25 +34,21 @@ export default function MainContent() {
           movieTitle={q}
         />
 
-        <Row>
-          <Col>
-            <Card>Just type in the movie you'd like to learn more about</Card>
-          </Col>
-          <ul>
-            {movieData.map((movie, i) => {
-              return (
-                <li key={i}>
-                  <MovieCard
-                    title={movie.Title}
-                    year={movie.Year}
-                    poster={movie.Poster}
-                    plot={movie.Plot}
-                  />
-                </li>
-              )
-            })}
-          </ul>
-        </Row>
+<Row>
+          {movieData.map((movie, i) => {
+            return (
+                  <Col sm={8} md={6} lg={3}>
+                    <MovieCard
+                      key={i}
+                      title={movie.Title}
+                      year={movie.Year}
+                      poster={movie.Poster}
+                      plot={movie.Plot}
+                    />
+                  </Col>
+            )
+          })}
+          </Row>
       </Container>
     </div>
   )
