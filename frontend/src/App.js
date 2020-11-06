@@ -1,4 +1,4 @@
-import SearchBar from './components/SearchBar'
+import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import MainContent from './components/MainContent'
 import './App.css';
@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <SearchBar />
+      <NavBar />
       <MainContent />
       <Footer />
     </div>
