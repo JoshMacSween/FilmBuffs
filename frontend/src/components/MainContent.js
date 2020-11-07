@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Container, Col, Row, Card, Button } from 'react-bootstrap'
 import MovieCard from './MovieCard'
+import MovieDetails from '../screens/MovieDetails'
 import SearchBar from './SearchBar'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 export default function MainContent() {
   const [q, setQ] = useState('')
@@ -25,6 +27,7 @@ export default function MainContent() {
 
   return (
     <div>
+      {/* <Route to={`/:${movieData.imdbID}`} component={MovieDetails} /> */}
       <Container>
         <h1 className="pt-3">Welcome to FilmBuffs</h1>
         <i>We know movies</i>
@@ -34,21 +37,21 @@ export default function MainContent() {
           movieTitle={q}
         />
 
-<Row>
-          {movieData.map((movie, i) => {
+        <Row>
+          {movieData.map((movie) => {
             return (
-                  <Col sm={8} md={6} lg={3}>
-                    <MovieCard
-                      key={i}
-                      title={movie.Title}
-                      year={movie.Year}
-                      poster={movie.Poster}
-                      plot={movie.Plot}
-                    />
-                  </Col>
+              <Col key={movie.imdbID} sm={8} md={6} lg={3}>
+                <MovieCard
+                  id={movie.imdbID}
+                  title={movie.Title}
+                  year={movie.Year}
+                  poster={movie.Poster}
+                  plot={movie.Plot}
+                />
+              </Col>
             )
           })}
-          </Row>
+        </Row>
       </Container>
     </div>
   )

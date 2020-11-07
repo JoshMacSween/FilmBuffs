@@ -1,16 +1,24 @@
+import {useState} from 'react'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
+import SignUp from './screens/SignUp'
 import MainContent from './components/MainContent'
-import './App.css';
+import './App.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <MainContent />
-      <Footer />
+      <Router>
+        <NavBar />
+          <Route path='/' component={MainContent} exact />
+          <Route path='/signUp' component={SignUp} />
+
+        <Footer />
+      </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
