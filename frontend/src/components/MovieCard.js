@@ -1,16 +1,14 @@
 import React from 'react'
 import { Container, Card } from 'react-bootstrap'
-import {Link} from 'react-router-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-export default function MovieCard({ id, title, poster }) {
+export default function MovieCard({ onSelectFilm, id, title, poster }) {
   return (
     <>
       <Card>
         <Card.Body>
           <Card.Img src={poster} />
-            <a href={`/:${id}`}>{title}</a>
+          <Link to={`/${id}`}>{title}</Link>
         </Card.Body>
       </Card>
     </>

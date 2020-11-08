@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 export default function MainContent() {
   const [q, setQ] = useState('')
   const [movieData, setMovieData] = useState([])
+  const [movieID, setMovieID] = useState('')
 
   const onSubmitSearch = async (e) => {
     e.preventDefault()
@@ -25,9 +26,17 @@ export default function MainContent() {
     setQ(SearchValue)
   }
 
+  const onSelectFilm = async (e) => {
+    e.preventDefault()
+    const response = await axios.get(
+      `http://www.omdbapi.com/?i=${e.movieID}&p=short&apikey=${process.env.REACT_APP_API_KEY}`
+    )
+    setMovieID(response)
+    console.log(movieID);
+  }
   return (
     <div>
-      {/* <Route to={`/:${movieData.imdbID}`} component={MovieDetails} /> */}
+
       <Container>
         <h1 className="pt-3">Welcome to FilmBuffs</h1>
         <i>We know movies</i>
@@ -39,9 +48,11 @@ export default function MainContent() {
 
         <Row>
           {movieData.map((movie) => {
+            // <Route to={`/:${movieData.imdbID}`} component={MovieDetails} />
             return (
               <Col key={movie.imdbID} sm={8} md={6} lg={3}>
                 <MovieCard
+                onSelectFilm={onSelectFilm}
                   id={movie.imdbID}
                   title={movie.Title}
                   year={movie.Year}
