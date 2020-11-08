@@ -11,12 +11,12 @@ export default function MainContent() {
   const onSubmitSearch = async (e) => {
     e.preventDefault()
     const response = await axios.get(
-      `http://www.omdbapi.com/?s=${q}&p=short&apikey=${process.env.REACT_APP_API_KEY}`
+      `http://www.omdbapi.com/?s=${q}&type=movie&plot=short&apikey=${process.env.REACT_APP_API_KEY}`
     )
     const fetchedMovie = await response.data
     setMovieData(fetchedMovie.Search)
   }
-
+  
   const onSearchChange = (e) => {
     e.preventDefault()
     const SearchValue = e.target.value

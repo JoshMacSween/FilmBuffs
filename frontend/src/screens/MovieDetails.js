@@ -17,6 +17,11 @@ export default function MovieDetails() {
           <ListGroup variant="flush">
             <ListGroup.Item>{location.state.title}</ListGroup.Item>
             <ListGroup.Item>{location.state.year}</ListGroup.Item>
+            <ListGroup.Item>
+              {location.state.plot
+                ? location.state.plot
+                : 'Plot not yet available'}
+            </ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>

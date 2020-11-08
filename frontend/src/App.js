@@ -6,7 +6,6 @@ import MainContent from './components/MainContent'
 import MovieDetails from './screens/MovieDetails'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-
 function App() {
   return (
     <div className="App">
