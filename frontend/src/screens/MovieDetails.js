@@ -1,20 +1,22 @@
 import React from 'react'
-import { Container, Row, Col, Card, ListGroup } from 'react-bootstrap'
+import { useLocation } from 'react-router-dom'
+import { Container, Row, Col, Card, Image, ListGroup } from 'react-bootstrap'
 
-export default function MovieDetails(props) {
+export default function MovieDetails() {
+  const location = useLocation()
+  console.log(location)
+
   return (
     <Container>
-      <h1>Test</h1>
       <Row>
-        <Col>
-          <h1>Poster</h1>
-          {props.Poster}
+        <Col className="py-5">
+          <Image src={location.state.poster} fluid />
         </Col>
 
-        <Col>
+        <Col className="py-5">
           <ListGroup variant="flush">
-            <ListGroup.Item>{props.id}Title</ListGroup.Item>
-            <ListGroup.Item>{props.Year}Year</ListGroup.Item>
+            <ListGroup.Item>{location.state.title}</ListGroup.Item>
+            <ListGroup.Item>{location.state.year}</ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>

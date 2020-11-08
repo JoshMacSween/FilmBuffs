@@ -48,7 +48,6 @@ export default function MainContent() {
 
         <Row>
           {movieData.map((movie) => {
-            // <Route to={`/:${movieData.imdbID}`} component={MovieDetails} />
             return (
               <Col key={movie.imdbID} sm={8} md={6} lg={3}>
                 <MovieCard
