@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import { Container, Col, Row, Card, Button } from 'react-bootstrap'
+import { Container, Col, Row } from 'react-bootstrap'
 import MovieCard from './MovieCard'
-import MovieDetails from '../screens/MovieDetails'
 import SearchBar from './SearchBar'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 export default function MainContent() {
   const [q, setQ] = useState('')
   const [movieData, setMovieData] = useState([])
-  const [movieID, setMovieID] = useState('')
 
   const onSubmitSearch = async (e) => {
     e.preventDefault()
@@ -26,17 +23,8 @@ export default function MainContent() {
     setQ(SearchValue)
   }
 
-  const onSelectFilm = async (e) => {
-    e.preventDefault()
-    const response = await axios.get(
-      `http://www.omdbapi.com/?i=${e.movieID}&p=short&apikey=${process.env.REACT_APP_API_KEY}`
-    )
-    setMovieID(response)
-    console.log(movieID);
-  }
   return (
     <div>
-
       <Container>
         <h1 className="pt-3">Welcome to FilmBuffs</h1>
         <i>We know movies</i>
@@ -51,7 +39,6 @@ export default function MainContent() {
             return (
               <Col key={movie.imdbID} sm={8} md={6} lg={3}>
                 <MovieCard
-                onSelectFilm={onSelectFilm}
                   id={movie.imdbID}
                   title={movie.Title}
                   year={movie.Year}

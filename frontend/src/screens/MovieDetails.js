@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { Container, Row, Col, Card, Image, ListGroup } from 'react-bootstrap'
+import { Container, Row, Col, Image, ListGroup } from 'react-bootstrap'
 
 export default function MovieDetails() {
   const location = useLocation()
