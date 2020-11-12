@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 export default function MovieCard({ id, year, title, poster, plot }) {
-  const [movieInfo, setMovieInfo] = useState(null)
+  // const [movieInfo, setMovieInfo] = useState(null)
 
-  const grabMovieInfo = async (e) => {
-    e.preventDefault()
-    const response = await axios.get(
-      `http://www.omdbapi.com/?i=${id}&type=movie&plot=short&apikey=${process.env.REACT_APP_API_KEY}`
-    )
-    const grabbedData = await response.data.Plot
-    // console.log(grabbedData);
-    // setMovieInfo(grabbedData)
-    console.log(movieInfo)
-  }
+  // const grabMovieInfo = async (e) => {
+  //   e.preventDefault()
+  //   const response = await axios.get(
+  //     `http://www.omdbapi.com/?i=${id}&type=movie&plot=short&apikey=${process.env.REACT_APP_API_KEY}`
+  //   )
+  //   const grabbedData = await response.data
+  //   console.log(grabbedData);
+  //   setMovieInfo(grabbedData)
+  //   console.log(movieInfo)
+  // }
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function MovieCard({ id, year, title, poster, plot }) {
         <Card.Body>
           <Card.Img src={poster} />
           <Link
-          onClick={grabMovieInfo}
+          // onClick={grabMovieInfo}
             to={{
               pathname: `/${id}`,
               state: {
