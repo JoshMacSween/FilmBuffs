@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { Container, Row, Col, Image, ListGroup, Button } from 'react-bootstrap'
 
 export default function MovieDetails(props) {
@@ -14,7 +14,7 @@ export default function MovieDetails(props) {
   useEffect(() => {
     const grabMovieInfo = async () => {
       const response = await axios.get(
-        `http://www.omdbapi.com/?i=${props.match.params.id}&type=movie&plot=short&apikey=${process.env.REACT_APP_API_KEY}`
+        `http://www.omdbapi.com/?i=${props.match.params.id}&type=movie&plot=full&apikey=${process.env.REACT_APP_API_KEY}`
       )
       const grabbedData = response.data
       console.log(grabbedData)
@@ -43,7 +43,16 @@ export default function MovieDetails(props) {
               {movieInfo.Genre} | {movieInfo.Year}
             </ListGroup.Item>
           </ListGroup>
-          <Button>Add To Watchlist</Button>
+          <Row className="text-center">
+            <Col>
+              <Button className="bg-dark mr-2">
+                <Link to="/">Back To Search</Link>
+              </Button>
+              <Button className="bg-dark ml-2">
+                <Link className="text-center">Add To Watchlist</Link>
+              </Button>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>
