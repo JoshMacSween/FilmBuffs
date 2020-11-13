@@ -10,7 +10,7 @@ export default function MovieCard({ id, year, title, poster, plot }) {
           <Card.Img src={poster} />
           <Link
             to={{
-              pathname: `/${id}`,
+              pathname: `/search/${id}`,
               state: {
                 title: `${title}`,
                 year: `${year}`,

@@ -13,7 +13,7 @@ function App() {
         <NavBar />
         <Route path="/" component={MainContent} exact />
         <Route path="/signUp" component={SignUp} exact/>
-        <Route path="/:id" component={MovieDetails} exact/>
+        <Route path="/search/:id" component={MovieDetails} exact/>
         <Footer />
       </Router>
     </div>
