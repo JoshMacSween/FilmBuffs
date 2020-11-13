@@ -12,8 +12,8 @@ function App() {
       <Router>
         <NavBar />
         <Route path="/" component={MainContent} exact />
-        <Route path="/signUp" component={SignUp} />
-        <Route path="/:id" component={MovieDetails} />
+        <Route path="/signUp" component={SignUp} exact/>
+        <Route path="/:id" component={MovieDetails} exact/>
         <Footer />
       </Router>
     </div>

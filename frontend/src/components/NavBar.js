@@ -18,8 +18,11 @@ export default function SearchBar(props) {
             <Navbar.Brand>FilmBuffs</Navbar.Brand>
           </LinkContainer>
           <LinkContainer to="/signUp">
-            <Navbar.Brand>Sign Up</Navbar.Brand>
+            <Navbar.Brand className="text-white ml-auto">Sign Up</Navbar.Brand>
           </LinkContainer>
+          {/* <LinkContainer to="/logIn">
+            <Nav.Item className="text-white ml-3">Log In</Nav.Item>
+          </LinkContainer> */}
         </Container>
       </Navbar>
     </>

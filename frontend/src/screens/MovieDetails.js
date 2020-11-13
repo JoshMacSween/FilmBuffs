@@ -9,6 +9,7 @@ export default function MovieDetails(props) {
     Director: '',
     Actors: '',
     Year: '',
+    Poster: '',
   })
 
   useEffect(() => {
@@ -30,12 +31,12 @@ export default function MovieDetails(props) {
     <Container>
       <Row>
         <Col className="py-5">
-          <Image src={location.state.poster} fluid />
+          <Image src={movieInfo.Poster} fluid />
         </Col>
 
         <Col className="py-5">
           <ListGroup variant="flush">
-            <ListGroup.Item>{location.state.title}</ListGroup.Item>
+            <ListGroup.Item>{movieInfo.Title}</ListGroup.Item>
             <ListGroup.Item>Directed by: {movieInfo.Director}</ListGroup.Item>
             <ListGroup.Item>Starring: {movieInfo.Actors}</ListGroup.Item>
             <ListGroup.Item>{movieInfo.Plot}</ListGroup.Item>
