@@ -15,7 +15,7 @@ export default function MovieDetails(props) {
   useEffect(() => {
     const grabMovieInfo = async () => {
       const response = await axios.get(
-        `http://www.omdbapi.com/?i=${props.match.params.id}&type=movie&plot=full&apikey=${process.env.REACT_APP_API_KEY}`
+        `https://www.omdbapi.com/?i=${props.match.params.id}&type=movie&plot=full&apikey=${process.env.REACT_APP_API_KEY}`
       )
       const grabbedData = response.data
       console.log(grabbedData)
