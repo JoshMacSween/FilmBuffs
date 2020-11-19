@@ -11,8 +11,14 @@ export default function SearchBar({
       <Row>
         <Col>
           <Form onSubmit={onSubmitSearch} className="py-2">
-            <Form.Control className="text-center" placeholder="Any movie you like..." onChange={onSearchChange} />
-            <Button className="my-2">Search</Button>
+            <Form.Control
+              className="text-center"
+              placeholder="Any movie you like..."
+              onChange={onSearchChange}
+            />
+            <Button className="my-2" type="submit">
+              Search
+            </Button>
           </Form>
         </Col>
       </Row>
