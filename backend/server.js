@@ -1,20 +1,35 @@
-// const express = require('express')
-// const dotenv = require('dotenv')
-// const http = require('http')
+const express = require('express')
+const dotenv = require('dotenv')
+const http = require('http')
+const mongoose = require('mongoose')
+const cors = require('cors')
 
-// const app = express()
+const app = express()
 
-// app.get('/', (req, res) => {
-//   res.send('Backend Running')
-// })
+dotenv.config()
 
-// app.get(
-//   `/http://www.omdbapi.com/?apikey=${process.env.API_KEY}&t=Sharknado&y=2013&plot=short&r=xml`,
-//   (req, res) => {
-//     res.send(req.body)
-//   }
-// )
+//Express Setup
 
-// const port = process.env.PORT || 5000
+app.use(express.json())
+app.use(cors())
 
-// app.listen(port, console.log(`Server listening at port: ${port}`))
+app.get('/', (req, res) => {
+  res.send('Backend Running')
+})
+
+const port = process.env.PORT || 5000
+
+mongoose.connect(
+  process.env.MONGO_URI,
+  {
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  },
+  (err) => {
+    if (err) throw err
+    console.log('MongoDB connection successful')
+  }
+)
+
+app.listen(port, console.log(`Server listening at port: ${port}`))
