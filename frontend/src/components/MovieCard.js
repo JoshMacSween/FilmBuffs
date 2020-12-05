@@ -17,7 +17,7 @@ export default function MovieCard({ id, year, title, poster, plot }) {
             },
           }}
         >
-          <Card.Img className="moviePoster pb-3" src={poster} />
+          <Card.Img className="moviePoster mb-3" src={poster} />
         </Link>
 
     </>

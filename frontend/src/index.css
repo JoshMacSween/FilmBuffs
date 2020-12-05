@@ -17,5 +17,9 @@ code {
 } */
 
 .moviePoster {
-  
+  max-height: 400px;
+}
+
+.navLogo {
+  max-height: 75px;
 }

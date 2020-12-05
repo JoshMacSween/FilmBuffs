@@ -6,6 +6,7 @@ import {
   Form,
   Button,
   FormControl,
+  Image,
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
@@ -15,7 +16,9 @@ export default function SearchBar(props) {
       <Navbar bg="dark" variant="dark">
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>FilmBuffs</Navbar.Brand>
+            <Navbar.Brand>
+              <Image className="navLogo" src="/images/favicon_movie2.png" alt="FilmBuffs" fluid/>
+            </Navbar.Brand>
           </LinkContainer>
           <LinkContainer to="/signUp">
             <Navbar.Brand className="text-white ml-auto">Sign Up</Navbar.Brand>
