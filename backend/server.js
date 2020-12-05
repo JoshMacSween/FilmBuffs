@@ -1,6 +1,5 @@
 const express = require('express')
 const dotenv = require('dotenv')
-const http = require('http')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
@@ -13,11 +12,7 @@ dotenv.config()
 app.use(express.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.send('Backend Running')
-})
-
-const port = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000
 
 mongoose.connect(
   process.env.MONGO_URI,
@@ -32,4 +27,5 @@ mongoose.connect(
   }
 )
 
-app.listen(port, console.log(`Server listening at port: ${port}`))
+app.listen(PORT, console.log(`Server listening at port: ${PORT}`))
+app.use('/users', require('./routes/UserRoutes'))
