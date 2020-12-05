@@ -7,7 +7,6 @@ export default function MovieCard({ id, year, title, poster, plot }) {
     <>
       <Card>
         <Card.Body>
-          <Card.Img src={poster} />
           <Link
             to={{
               pathname: `/search/${id}`,
@@ -19,7 +18,7 @@ export default function MovieCard({ id, year, title, poster, plot }) {
               },
             }}
           >
-            {title}
+            <Card.Img src={poster} />
           </Link>
         </Card.Body>
       </Card>
