@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Container, Col, Row } from 'react-bootstrap'
 import MovieCard from './MovieCard'
 import SearchBar from './SearchBar'
+import NoFilms from '../screens/NoFilms'
 
 export default function MainContent() {
   const [q, setQ] = useState('')
@@ -35,19 +36,23 @@ export default function MainContent() {
         />
 
         <Row>
-          {movieData.map((movie) => {
-            return (
-              <Col key={movie.imdbID} sm={8} md={6} lg={3}>
-                <MovieCard
-                  id={movie.imdbID}
-                  title={movie.Title}
-                  year={movie.Year}
-                  poster={movie.Poster}
-                  plot={movie.Plot}
-                />
-              </Col>
-            )
-          })}
+          {movieData ? (
+            movieData.map((movie) => {
+              return (
+                <Col key={movie.imdbID} sm={8} md={6} lg={3}>
+                  <MovieCard
+                    id={movie.imdbID}
+                    title={movie.Title}
+                    year={movie.Year}
+                    poster={movie.Poster}
+                    plot={movie.Plot}
+                  />
+                </Col>
+              )
+            })
+          ) : (
+            <NoFilms />
+          )}
         </Row>
       </Container>
     </div>
