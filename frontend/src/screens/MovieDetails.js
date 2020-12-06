@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useLocation, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Container, Row, Col, Image, ListGroup, Button } from 'react-bootstrap'
 
 export default function MovieDetails(props) {
@@ -11,6 +11,7 @@ export default function MovieDetails(props) {
     Year: '',
     Poster: '',
   })
+  const history = useHistory()
 
   useEffect(() => {
     const grabMovieInfo = async () => {
@@ -23,9 +24,6 @@ export default function MovieDetails(props) {
     }
     grabMovieInfo()
   }, [])
-
-  const location = useLocation()
-  console.log(location)
 
   return (
     <Container>
@@ -46,14 +44,18 @@ export default function MovieDetails(props) {
           </ListGroup>
           <Row className="text-center">
             <Col>
-              <Button className="bg-dark mr-2">
-                <Link to="/">Back To Search</Link>
+              <Button onClick={() => history.goBack()} className="bg-dark mr-2">
+                Search Results
               </Button>
-              <Button className="bg-dark ml-2">
-                <Link className="text-center">Add To Watchlist</Link>
-              </Button>
+              <Button className="bg-dark ml-2">Watchlist</Button>
             </Col>
           </Row>
+          <Button
+            className="bg-dark mt-2 text-light"
+            onClick={() => history.push('/')}
+          >
+            Home
+          </Button>
         </Col>
       </Row>
     </Container>
