@@ -8,7 +8,7 @@ export default function MovieCard({ id, year, title, poster, plot }) {
 
         <Link
           to={{
-            pathname: `/search/${id}`,
+            pathname: `/selected/${id}`,
             state: {
               title: `${title}`,
               year: `${year}`,
