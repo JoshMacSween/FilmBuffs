@@ -4,10 +4,13 @@ import { Container, Col, Row } from 'react-bootstrap'
 import MovieCard from './MovieCard'
 import SearchBar from './SearchBar'
 import NoFilms from '../screens/NoFilms'
+import SearchResults from '../screens/SearchResults'
+import { useHistory } from 'react-router-dom'
 
 export default function MainContent() {
   const [q, setQ] = useState('')
   const [movieData, setMovieData] = useState([])
+  const history = useHistory()
 
   const onSubmitSearch = async (e) => {
     e.preventDefault()
@@ -16,6 +19,7 @@ export default function MainContent() {
     )
     const fetchedMovie = await response.data
     setMovieData(fetchedMovie.Search)
+    // history.push(`/${q}`)
   }
 
   const onSearchChange = (e) => {
@@ -36,23 +40,7 @@ export default function MainContent() {
         />
 
         <Row>
-          {movieData ? (
-            movieData.map((movie) => {
-              return (
-                <Col key={movie.imdbID} sm={8} md={6} lg={3}>
-                  <MovieCard
-                    id={movie.imdbID}
-                    title={movie.Title}
-                    year={movie.Year}
-                    poster={movie.Poster}
-                    plot={movie.Plot}
-                  />
-                </Col>
-              )
-            })
-          ) : (
-            <NoFilms />
-          )}
+          <SearchResults movieData={movieData} />
         </Row>
       </Container>
     </div>
