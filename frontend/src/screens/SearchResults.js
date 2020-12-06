@@ -9,19 +9,23 @@ export default function SearchResults() {
   return (
     <Container className="mt-3">
       <Row>
-        {movieData.map((movie) => {
-          return (
-            <Col key={movie.imdbID} sm={8} md={6} lg={3}>
-              <MovieCard
-                id={movie.imdbID}
-                title={movie.Title}
-                year={movie.Year}
-                poster={movie.Poster}
-                plot={movie.Plot}
-              />
-            </Col>
-          )
-        })}
+        {movieData ? (
+          movieData.map((movie) => {
+            return (
+              <Col key={movie.imdbID} sm={8} md={6} lg={3}>
+                <MovieCard
+                  id={movie.imdbID}
+                  title={movie.Title}
+                  year={movie.Year}
+                  poster={movie.Poster}
+                  plot={movie.Plot}
+                />
+              </Col>
+            )
+          })
+        ) : (
+          <NoFilms />
+        )}
       </Row>
     </Container>
   )
