@@ -17,9 +17,9 @@ export default function SearchBar(props) {
               <Image className="navLogo" src="/images/favicon_movie2.png" alt="FilmBuffs" fluid/>
             </Navbar.Brand>
           </LinkContainer>
-          {/* <LinkContainer to="/staffPicks">
+          <LinkContainer to="/staffPicks">
             <Nav.Link className="text-white ">[ Staff Picks ]</Nav.Link>
-          </LinkContainer> */}
+          </LinkContainer>
           <LinkContainer to="/signUp">
             <Nav.Link className="text-white ml-auto">[ Sign Up ]</Nav.Link>
           </LinkContainer>

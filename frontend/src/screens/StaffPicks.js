@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Row, Col, Image} from 'react-bootstrap'
+import { Container, Row, Col, Image } from 'react-bootstrap'
 
 export default function StaffPicks() {
   return (
@@ -7,11 +7,15 @@ export default function StaffPicks() {
       <h2>Top picks from FilmBuffs head Film Buff</h2>
 
       <Row>
-        <Col>Wizards</Col>
-        <Col>Inland Empire</Col>
-        <Col>Jesus Shows You The Way To The HighWay</Col>
-        <Col>Happiness of the Katakuries</Col>
-        <Col>House</Col>
+        <Col>
+          <ul className="topTen">
+            <li>Wizards</li>
+            <li>Inline Empire</li>
+            <li>Jesus Shows You The Way To The HighWay</li>
+            <li>Happiness of the Katakuries</li>
+            <li>House</li>
+          </ul>
+        </Col>
       </Row>
       <Row>
         <Col>The Holy Mountain</Col>
@@ -20,7 +24,6 @@ export default function StaffPicks() {
         <Col>Forbidden Planet</Col>
         <Col>Midsommar</Col>
       </Row>
-
     </Container>
   )
 }

@@ -7,8 +7,8 @@ import { MovieContext } from '../contexts/MovieProvider'
 export default function MainContent() {
   const { onSubmitSearch, onSearchChange, q } = useContext(MovieContext)
   return (
-    <div>
-      <Container>
+    <div >
+      <Container className="main">
         <h1 className="pt-3">Welcome to FilmBuffs</h1>
         <i>We know movies</i>
         <SearchBar
