@@ -8,12 +8,6 @@ export default function SearchBar() {
     <div className="mt-5">
       <Row>
         <Col>
-          <h1>Welcome To FilmBuffs</h1>
-          <p>We know movies</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
           <Form onSubmit={onSubmitSearch} className="py-2">
             <Form.Control
               autoFocus
