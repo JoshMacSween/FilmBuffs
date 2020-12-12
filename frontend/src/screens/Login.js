@@ -3,7 +3,7 @@ import { Form, Row, Col, Card, Button, Container } from 'react-bootstrap'
 
 export default function Login() {
   return (
-    <Card>
+    <Card style={{marginTop: "10%", backgroundColor: "#eee"}}>
       <Card.Body>
         <h2 className="text-center mb-4>">Log In</h2>
         <Form >
