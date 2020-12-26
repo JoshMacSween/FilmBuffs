@@ -28,4 +28,5 @@ mongoose.connect(
 )
 
 app.listen(PORT, console.log(`Server listening at port: ${PORT}`))
-app.use('/users', require('./routes/UserRoutes'))
+app.use('/users', require('./routes/UserRouter'))
+app.use('/movieList', require('./routes/MovieRouter'))

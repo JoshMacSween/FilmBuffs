@@ -1,9 +1,9 @@
-const mongoose = require('mongoose')
-const {movieSchema} = require("./Movie")
+const mongoose = require("mongoose");
+const { movieSchema } = require("./Movie");
 
 const userSchema = new mongoose.Schema({
   userName: {
-    type: String
+    type: String,
   },
   email: {
     type: String,
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
-  watchlist: [movieSchema]
-})
+  watchList: [movieSchema],
+});
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model("User", userSchema);
