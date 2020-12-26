@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const {movieSchema} = require("./Movie")
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   userName: {
     type: String
   },
@@ -14,7 +15,7 @@ var userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
+  watchlist: [movieSchema]
 })
 
-//Export the model
 module.exports = mongoose.model('User', userSchema)
